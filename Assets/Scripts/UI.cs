@@ -9,6 +9,10 @@ public class UI : MonoBehaviour
 
     [SerializeField] GameObject connectButton;
 
+    [SerializeField] GameObject marketButton;
+
+    [SerializeField] GameObject leaderBoardButton;
+
     [SerializeField] GameObject mainMenu;
 
     [SerializeField] GameObject controlsCanvas;
@@ -23,10 +27,25 @@ public class UI : MonoBehaviour
 
     [SerializeField] string networkAddress;
 
+    [SerializeField] string leaderBoardURL;
+
+    [SerializeField] string marketplaceURL;
+
     private void Start()
     {
         //hideCanvas(countCanvas);
         connectButton.GetComponent<Button>().onClick.AddListener(() => OnClick());
+        leaderBoardButton.GetComponent<Button>().onClick.AddListener(() =>
+        {
+            Debug.Log("leader board");
+            Application.OpenURL(leaderBoardURL);
+        });
+
+        marketButton.GetComponent<Button>().onClick.AddListener(() =>
+        {
+            Debug.Log("Market button");
+            Application.OpenURL(marketplaceURL);
+        });
         //mainMenu.active = false;
     }
 

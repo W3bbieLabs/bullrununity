@@ -51,6 +51,7 @@ public class PlayerController : NetworkBehaviour
 
     Label countDownLabel;
 
+
     /*
     [SyncVar(hook = nameof(onPlayerCountChange))]
     int serverCount = 0;
@@ -137,7 +138,23 @@ public class PlayerController : NetworkBehaviour
         gameMessage = root.Q<VisualElement>("message-container").Q<Label>("message");
 
         shared = GameObject.FindGameObjectWithTag("shared").GetComponent<SharedData>();
+        GameObject joyButton = GameObject.FindGameObjectWithTag("joy");
+        GameObject jumpButton = GameObject.FindGameObjectWithTag("jump");
+        //hideGameObject(joyButton);
+        //hideGameObject(jumpButton);
+
+        //Check if the device running this is a desktop
+        /*
+        if (SystemInfo.deviceType == DeviceType.Handheld)
+        {
+            showCanvas(joyButton);
+            hideGameObject(jumpButton);
+        }*/
+
+        Debug.Log($"Device Type: {SystemInfo.deviceType}");
     }
+
+
 
     public override void OnStopClient()
     {
@@ -480,6 +497,28 @@ public class PlayerController : NetworkBehaviour
         GameObject.FindGameObjectWithTag("footsteps").GetComponent<AudioSource>().Stop();
         isFootstepsPlaying = false;
     }
+
+    public void hideGameObject(GameObject canvas)
+    {
+        Renderer renderer = canvas.GetComponent<Renderer>();
+        canvas.SetActive(false);
+        if (renderer != null)
+        {
+            renderer.enabled = false;
+        }
+    }
+
+    public void showCanvas(GameObject canvas)
+    {
+        Renderer renderer = canvas.GetComponent<Renderer>();
+        canvas.SetActive(true);
+        if (renderer != null)
+        {
+            renderer.enabled = true;
+        }
+    }
+
+
 
     /*
     async void claim()

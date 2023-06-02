@@ -59,9 +59,10 @@ public class MyNetworkManager : NetworkManager
         base.OnServerDisconnect(conn);
     }
 
+    /*
     public void testNetwork()
     {
         shared.SetCountDown(1000);
         Debug.Log("testNetwork!");
-    }
+    }*/
 }

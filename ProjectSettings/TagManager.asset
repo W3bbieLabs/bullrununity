@@ -3,7 +3,29 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - wallR
+  - levelMusic
+  - wallL
+  - boxaudio
+  - boost
+  - MainMenu
+  - UIDoc
+  - lossaudio
+  - nm
+  - footsteps
+  - winaudio
+  - powerup
+  - shared
+  - box
+  - water
+  - ground
+  - wallet
+  - balance
+  - bear
+  - lp
+  - jump
+  - joy
   layers:
   - Default
   - TransparentFX

@@ -85,6 +85,7 @@ public class SharedData : NetworkBehaviour
     }
 
     [Command]
+
     public void startCounter()
     {
         StartCoroutine(updateCountdown(countDownLength));
@@ -111,7 +112,7 @@ public class SharedData : NetworkBehaviour
         for (int i = count; i >= 0; i--)
         {
             yield return new WaitForSeconds(1);
-            countDown = i;
+            countDown = i; // this is probably unnecessary
             SetCountDown(i);
         }
         setRaceState(true);
